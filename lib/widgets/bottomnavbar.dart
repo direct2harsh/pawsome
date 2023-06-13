@@ -21,6 +21,8 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
     const HistoryScreen(),
   ];
 
+  PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = MyApp.of(context).themeMode == ThemeMode.dark;
@@ -31,26 +33,32 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
+            toolbarHeight: 45,
             centerTitle: true,
             title: Text(
               currentIndex == 0 ? "Home" : "History",
             ),
             titleTextStyle: const TextStyle(
                 color: Colors.purple,
-                fontSize: 17,
+                fontSize: 23,
                 fontWeight: FontWeight.bold),
             actions: [
               IconButton(
+                  tooltip: "Switch Theme",
                   onPressed: () {
                     MyApp.of(context).switchTheme();
                   },
                   icon: const Icon(
                     Icons.color_lens,
                     color: Colors.purple,
+                    size: 30,
                   ))
             ],
           ),
-          body: _tabs[provider.currentTabIndex],
+          body: PageView(
+            children: _tabs,
+            controller: _pageController,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
             backgroundColor: Colors.white,
@@ -64,7 +72,10 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
               BottomNavigationBarItem(
                   label: "History", icon: Icon(Icons.history))
             ],
-            onTap: (value) => provider.setCurrentTabIndex = value,
+            onTap: (value) {
+              provider.setCurrentTabIndex = value;
+              _pageController.jumpToPage(value);
+            },
           ),
         );
       },

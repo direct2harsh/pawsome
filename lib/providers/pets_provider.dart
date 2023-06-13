@@ -30,7 +30,7 @@ class PetProvider extends ChangeNotifier {
       return;
     }
     petState = PetState.loadingMore;
-    // notifyListeners();
+    notifyListeners();
     Future.delayed(
       const Duration(seconds: 3),
       () async {

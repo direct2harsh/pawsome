@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pawsome/providers/bottom_nav_provider.dart';
 import 'package:pawsome/screens/home_screen.dart';
+import 'package:pawsome/widgets/bottomnavbar.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -20,12 +25,13 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Pawsome',
       theme: ThemeData(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeMode,
       routes: {
-        "/": (context) => HomeScreen(),
+        '/': (context) => BottomNavWidget(),
       },
       initialRoute: "/",
     );

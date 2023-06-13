@@ -1,0 +1,159 @@
+[
+{
+    "id":1,
+    "name":"Angle",
+    "age":1,
+    "image":"/assets/images/Angle.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},
+{
+    "id":2,
+    "name":"Breezer",
+    "age":3,
+    "price": 8000,
+    "image":"/assets/images/Breezer.jpg",
+    "alreadyAdopted": false
+},
+{
+    "id":3,
+    "name":"Brownie",
+    "age":1,
+    "image":"/assets/images/Brownie.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":4,
+    "name":"Candy",
+    "age":2,
+    "image":"/assets/images/Candy.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":5,
+    "name":"Crystal",
+    "age":2,
+    "image":"/assets/images/Crystal.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":6,
+    "name":"Cuddle",
+    "age":1,
+    "image":"/assets/images/Cuddle.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":7,
+    "name":"Dusky",
+    "age":2,
+    "image":"/assets/images/Dusky.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":9,
+    "name":"Jenny",
+    "age":1,
+    "image":"/assets/images/Jenny.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":10,
+    "name":"Jojo",
+    "age":4,
+    "image":"/assets/images/Jojo.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":11,
+    "name":"Leo",
+    "age":6,
+    "image":"/assets/images/Leo.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":12,
+    "name":"Max",
+    "age":3,
+    "image":"/assets/images/Max.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":13,
+    "name":"Monty",
+    "age":4,
+    "image":"/assets/images/Monty.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":14,
+    "name":"Olivia",
+    "age":2,
+    "image":"/assets/images/Olivia.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":15,
+    "name":"Oreo",
+    "age":1,
+    "image":"/assets/images/oreo.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":16,
+    "name":"Prince",
+    "age":6,
+    "image":"/assets/images/Prince.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":17,
+    "name":"Rambo",
+    "age":5,
+    "image":"/assets/images/Rambo.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":18,
+    "name":"Rose",
+    "age":2,
+    "image":"/assets/images/Rose.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":19,
+    "name":"Ruby",
+    "age":3,
+    "image":"/assets/images/Ruby.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":20,
+    "name":"Simba",
+    "age":5,
+    "image":"/assets/images/Simba.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":21,
+    "name":"snowbell",
+    "age":1,
+    "image":"/assets/images/snowbell.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":22,
+    "name":"Tommy",
+    "age":3,
+    "image":"/assets/images/Tommy.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+},{
+    "id":23,
+    "name":"Tuffy",
+    "age":1,
+    "image":"/assets/images/Tuffy.jpg",
+    "price": 5000,
+    "alreadyAdopted": false
+}
+]

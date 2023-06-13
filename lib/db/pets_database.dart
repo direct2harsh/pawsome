@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pawsome/models/pet_model.dart';
 import 'package:sqflite/sqflite.dart';
 
-
 class PetsDataBase {
   static final PetsDataBase instance = PetsDataBase._init();
   static Database? _database;
@@ -55,11 +54,11 @@ ${PetsField.alreadyAdopted} $boolType
     }
   }
 
-  Future<List<Pet>> getAll() async {
+  Future<dynamic> getAllPets() async {
     final db = await instance.database;
     final result = await db!.query(petTable);
-    var response = result.map((json) => Pet.fromJson(json)).toList();
-    return response;
+
+    return result;
   }
 
   void update(Pet pet) async {

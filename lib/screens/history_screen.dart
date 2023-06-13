@@ -26,7 +26,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           child: TextButton(
         child: Text("Hello"),
         onPressed: () async {
-          var result = PetsDataBase.instance.getAll();
+          var result = PetsDataBase.instance.getAllPets();
         },
       )),
     );

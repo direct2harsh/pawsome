@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawsome/db/initialise_database.dart';
+import 'package:pawsome/main.dart';
 import 'package:pawsome/providers/bottom_nav_provider.dart';
 import 'package:pawsome/screens/history_screen.dart';
 import 'package:pawsome/screens/home_screen.dart';
@@ -15,12 +16,6 @@ class BottomNavWidget extends StatefulWidget {
 }
 
 class _BottomNavWidgetState extends State<BottomNavWidget> {
-  @override
-  void initState() {
-    super.initState();
-    initialiseDataBase();
-  }
-
   final List<Widget> _tabs = [
     const HomeScreen(),
     const HistoryScreen(),
@@ -28,6 +23,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = MyApp.of(context).themeMode == ThemeMode.dark;
     return Consumer<BottomNavigationBarProvider>(
       builder: (context, provider, child) {
         int currentIndex = provider.currentTabIndex;
@@ -43,6 +39,16 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                 color: Colors.purple,
                 fontSize: 17,
                 fontWeight: FontWeight.bold),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    MyApp.of(context).switchTheme();
+                  },
+                  icon: const Icon(
+                    Icons.color_lens,
+                    color: Colors.purple,
+                  ))
+            ],
           ),
           body: _tabs[provider.currentTabIndex],
           bottomNavigationBar: BottomNavigationBar(

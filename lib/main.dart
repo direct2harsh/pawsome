@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawsome/providers/bottom_nav_provider.dart';
+import 'package:pawsome/providers/pets_provider.dart';
 import 'package:pawsome/screens/home_screen.dart';
 import 'package:pawsome/widgets/bottomnavbar.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider()),
+    ChangeNotifierProvider(create: (_) => PetProvider()),
   ], child: const MyApp()));
 }
 
@@ -21,25 +23,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.system;
+   ThemeMode themeMode = ThemeMode.system;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pawsome',
-      theme: ThemeData(),
-      darkTheme: ThemeData.dark(),
-      themeMode: _themeMode,
+      theme: ThemeData(brightness: Brightness.light),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      themeMode: themeMode,
       routes: {
-        '/': (context) => BottomNavWidget(),
+        '/': (context) => const BottomNavWidget(),
       },
       initialRoute: "/",
     );
   }
 
-  void changeTheme(ThemeMode themeMode) {
+  void switchTheme() {
     setState(() {
-      _themeMode = themeMode;
+      if (themeMode == ThemeMode.dark) {
+        themeMode = ThemeMode.light;
+      } else {
+        themeMode = ThemeMode.dark;
+      }
     });
   }
 }

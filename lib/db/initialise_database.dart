@@ -28,6 +28,6 @@ void initialiseDataBase() async {
 
     PetsDataBase.instance.addMultiplePet(pets);
 
-    await prefs.setBool('alreadyInitialised', true);
+    prefs.setBool('alreadyInitialised', true);
   }
 }

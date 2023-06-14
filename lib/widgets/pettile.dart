@@ -82,13 +82,7 @@ class PetTile extends StatelessWidget {
                         style: TextStyle(fontSize: 18),
                       ),
                       const Spacer(),
-                      Tooltip(
-                        message: "Say Hello!",
-                        child: InkWell(
-                          onTap: () {},
-                          child: Icon(Icons.message_outlined),
-                        ),
-                      ),
+                      Text(alreadyAdopted ? "Already Adopted" : ""),
                       SizedBox(
                         width: kPadding + 10,
                       )

@@ -101,28 +101,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) {
                           return Hero(
                             tag: provider.pets[index].name!,
-                            child: PetTile(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PetDetailScreen(
-                                            // Insted of passing all the values other way would be to fetch the details from db based on id.
-                                            // Since all the details are already available using this method
-                                            image: provider.pets[index].image!,
-                                            id: provider.pets[index].id!,
-                                            age: provider.pets[index].age!,
-                                            alreadyAdopted: provider
-                                                .pets[index].alreadyAdopted!,
-                                            name: provider.pets[index].name!,
-                                            price: provider.pets[index].price!,
-                                          ))),
-                              image: provider.pets[index].image!,
-                              id: provider.pets[index].id!,
-                              // age: provider.pets[index].age!,
-                              alreadyAdopted:
-                                  provider.pets[index].alreadyAdopted!,
-                              name: provider.pets[index].name!,
-                              // price: provider.pets[index].price!,
+                            child: Opacity(
+                              opacity:
+                                  provider.pets[index].alreadyAdopted! ? .4 : 1,
+                              child: PetTile(
+                                onTap: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PetDetailScreen(
+                                              // Insted of passing all the values other way would be to fetch the details from db based on id.
+                                              // Since all the details are already available using this method
+                                              // image: provider.pets[index].image!,
+                                              // id: provider.pets[index].id!,
+                                              // age: provider.pets[index].age!,
+                                              // alreadyAdopted: provider
+                                              //     .pets[index].alreadyAdopted!,
+                                              name: provider.pets[index].name!,
+                                              // price: provider.pets[index].price!,
+                                              index: index,
+                                            ))),
+                                image: provider.pets[index].image!,
+                                id: provider.pets[index].id!,
+                                // age: provider.pets[index].age!,
+                                alreadyAdopted:
+                                    provider.pets[index].alreadyAdopted!,
+                                name: provider.pets[index].name!,
+                                // price: provider.pets[index].price!,
+                              ),
                             ),
                           );
                         }),

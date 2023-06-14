@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pawsome/db/pets_database.dart';
 import 'package:pawsome/models/pet_model.dart';
 import 'package:pawsome/services/getPetslist.service.dart';
 
@@ -30,7 +31,7 @@ class PetProvider extends ChangeNotifier {
       return;
     }
     petState = PetState.loadingMore;
-    notifyListeners();
+    // notifyListeners();
     Future.delayed(
       const Duration(seconds: 3),
       () async {
@@ -41,5 +42,12 @@ class PetProvider extends ChangeNotifier {
         notifyListeners();
       },
     );
+  }
+
+  void adoptPet(int index) {
+    _pets[index].alreadyAdopted = true;
+// Updating it to database
+    PetsDataBase.instance.update(_pets[index]);
+    notifyListeners();
   }
 }

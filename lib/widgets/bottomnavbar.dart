@@ -20,12 +20,18 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
     const HomeScreen(),
     const HistoryScreen(),
   ];
+// Initializind Database with Asset values
+  @override
+  void initState() {
+    super.initState();
+    initialiseDataBase();
+  }
 
   PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = MyApp.of(context).themeMode == ThemeMode.dark;
+    // bool isDarkMode = MyApp.of(context).themeMode == ThemeMode.dark;
     return Consumer<BottomNavigationBarProvider>(
       builder: (context, provider, child) {
         int currentIndex = provider.currentTabIndex;
@@ -39,7 +45,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
               currentIndex == 0 ? "Home" : "History",
             ),
             titleTextStyle: const TextStyle(
-                color: Colors.purple,
+                // color: Colors.purple,
                 fontSize: 23,
                 fontWeight: FontWeight.bold),
             actions: [
@@ -56,8 +62,8 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
             ],
           ),
           body: PageView(
-            children: _tabs,
             controller: _pageController,
+            children: _tabs,
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,

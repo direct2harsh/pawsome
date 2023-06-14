@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pawsome',
-      theme: ThemeData(brightness: Brightness.light),
+      theme: ThemeData(brightness: Brightness.light, ),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: themeMode,
       routes: {

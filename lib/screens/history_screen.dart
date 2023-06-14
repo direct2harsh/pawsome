@@ -26,37 +26,41 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).unfocus();
     return Consumer<HistoryProvider>(
       builder: (context, data, child) {
+        if (data.state == HistoryState.loading ||
+            data.state == HistoryState.uninitialized) {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: kColor,
+            ),
+          );
+        }
         return Scaffold(
-          body: data.historyloading
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kPadding / 2),
-                  child: ListView.builder(
-                      itemCount: data.pets.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: ListTile(
-                            style: ListTileStyle.drawer,
-                            leading: ClipOval(
-                              child: Image.asset(
-                                data.pets[index].image!,
-                                cacheHeight: 200,
-                                cacheWidth: 250,
-                              ),
-                            ),
-                            trailing:
-                                Text("\u{20B9}${data.pets[index].price!}"),
-                            title: Text(data.pets[index].name!),
-                            subtitle: Text(getDateFormated(
-                                data.pets[index].adoptionTime!)),
-                          ),
-                        );
-                      }),
-                ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kPadding / 2),
+            child: ListView.builder(
+                itemCount: data.pets.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: ListTile(
+                      style: ListTileStyle.drawer,
+                      leading: ClipOval(
+                        child: Image.asset(
+                          data.pets[index].image!,
+                          cacheHeight: 200,
+                          cacheWidth: 250,
+                        ),
+                      ),
+                      trailing: Text("\u{20B9}${data.pets[index].price!}"),
+                      title: Text(data.pets[index].name!),
+                      subtitle:
+                          Text(getDateFormated(data.pets[index].adoptionTime!)),
+                    ),
+                  );
+                }),
+          ),
         );
       },
     );

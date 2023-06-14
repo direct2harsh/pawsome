@@ -36,9 +36,13 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
         int currentIndex = provider.currentTabIndex;
         return Scaffold(
           appBar: AppBar(
+            leading: const Icon(
+              Icons.pets,
+              color: kColor,
+            ),
             backgroundColor: Colors.transparent,
             elevation: 0,
-            toolbarHeight: 45,
+            toolbarHeight: 60,
             centerTitle: true,
             title: Text(
               currentIndex == 0 ? "Home" : "History",
@@ -52,7 +56,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                     MyApp.of(context).switchTheme();
                   },
                   icon: const Icon(
-                    Icons.color_lens,
+                    Icons.color_lens_sharp,
                     color: kColor,
                     size: 30,
                   ))

@@ -25,18 +25,27 @@ class PetProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // To keep the original list of pets
+  List<Pet> mainPetsList = [];
+
   Future<void> callPetApi() async {
     // Handling end of data
     if (_page > 3) {
       return;
     }
-    petState = PetState.loadingMore;
-    // notifyListeners();
+    
+    if (page > 1) {
+      petState = PetState.loadingMore;
+      notifyListeners();
+    }
+
     Future.delayed(
       const Duration(seconds: 3),
       () async {
-        List<Pet> res = await getPets(page: _page);
-        _pets.addAll(res);
+        List<Pet> temp = await getPets(page: _page);
+        mainPetsList.addAll(temp);
+
+        _pets.addAll(temp);
         page = page + 1;
         petState = PetState.loaded;
         notifyListeners();
@@ -44,11 +53,35 @@ class PetProvider extends ChangeNotifier {
     );
   }
 
+// Adopt Pet logic
   void adoptPet(int index) {
     _pets[index].alreadyAdopted = true;
     _pets[index].adoptionTime = DateTime.now().toUtc().toString();
 // Updating it to database
     PetsDataBase.instance.update(_pets[index]);
     notifyListeners();
+  }
+
+// Search pet logic
+
+  void searchPets(String query) {
+    petState = PetState.refreshing;
+    notifyListeners();
+    _pets.clear();
+
+    if (query.isEmpty) {
+      // Adding original list of data from database.
+      _pets.addAll(mainPetsList);
+      petState = PetState.loaded;
+      notifyListeners();
+    } else {
+      for (Pet pet in mainPetsList) {
+        if (pet.name!.toLowerCase().contains(query)) {
+          _pets.add(pet);
+        }
+      }
+      petState = PetState.loaded;
+      notifyListeners();
+    }
   }
 }

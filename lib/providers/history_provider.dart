@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:pawsome/models/pet_model.dart';
 import 'package:pawsome/services/getAdoptedHistory.service.dart';
 
+enum HistoryState { uninitialized, loading, loaded }
+
 class HistoryProvider extends ChangeNotifier {
-  bool historyloading = true;
+  HistoryState state = HistoryState.uninitialized;
 
   List<Pet> _pets = [];
 
@@ -17,6 +19,8 @@ class HistoryProvider extends ChangeNotifier {
   }
 
   Future<void> callHistoryApi() async {
+    state = HistoryState.loading;
+    // notifyListeners();
     _pets.clear();
 
     Future.delayed(
@@ -24,7 +28,7 @@ class HistoryProvider extends ChangeNotifier {
       () async {
         List<Pet> res = await getAdoptedPetList();
         _pets.addAll(res);
-        historyloading = false;
+        state = HistoryState.loaded;
         notifyListeners();
       },
     );

@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider()),
-    ChangeNotifierProvider(create: (_) => PetProvider()),
+    ChangeNotifierProvider(create: (_) => HomeProvider()),
     ChangeNotifierProvider(create: (_) => HistoryProvider()),
   ], child: const MyApp()));
 }
@@ -34,7 +34,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
       themeMode: themeMode,
       routes: {
         '/': (context) => const BottomNavWidget(),

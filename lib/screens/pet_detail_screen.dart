@@ -37,7 +37,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
   Widget build(BuildContext context) {
     bool isDark = MyApp.of(context).themeMode == ThemeMode.dark;
     return SafeArea(
-      child: Consumer<PetProvider>(builder: (context, data, child) {
+      child: Consumer<HomeProvider>(builder: (context, data, child) {
         return Scaffold(
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.only(
@@ -48,6 +48,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                   message: "Adopt me",
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: kColor,
                         elevation: 25,
                         // shape: StadiumBorder(),
                         shape: RoundedRectangleBorder(
@@ -113,9 +114,15 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(data.pets[widget.index].name!),
                             Text(
-                                '\u{20B9}${data.pets[widget.index].price!.toString()}')
+                              data.pets[widget.index].name!,
+                              style: const TextStyle(
+                                  fontSize: 30, fontWeight: FontWeight.w500),
+                            ),
+                            Text(
+                              '\u{20B9}${data.pets[widget.index].price!.toString()}',
+                              style: const TextStyle(fontSize: 20),
+                            )
                           ],
                         ),
                         const SizedBox(
@@ -204,8 +211,12 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                         Row(
                           children: [
                             const CircleAvatar(
+                              backgroundColor: kColor,
                               radius: 25,
-                              child: Icon(Icons.person),
+                              child: Icon(
+                                Icons.person,
+                                color: Colors.white,
+                              ),
                             ),
                             const SizedBox(
                               width: kPadding,
@@ -222,10 +233,20 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                               ],
                             ),
                             const Spacer(),
-                            IconButton(
-                                onPressed: () {}, icon: Icon(Icons.phone)),
-                            IconButton(
-                                onPressed: () {}, icon: Icon(Icons.message))
+                            Card(
+                              elevation: 2,
+                              child: IconButton(
+                                  tooltip: "Call owner",
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.phone)),
+                            ),
+                            Card(
+                              elevation: 2,
+                              child: IconButton(
+                                  tooltip: "Message owner",
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.message)),
+                            )
                           ],
                         )
                       ],

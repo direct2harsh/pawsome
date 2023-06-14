@@ -5,7 +5,7 @@ import 'package:pawsome/services/getPetslist.service.dart';
 
 enum PetState { loaded, uninitialized, loadingMore, refreshing, empty, error }
 
-class PetProvider extends ChangeNotifier {
+class HomeProvider extends ChangeNotifier {
   int _page = 1;
   int get page => _page;
 
@@ -33,7 +33,7 @@ class PetProvider extends ChangeNotifier {
     if (_page > 3) {
       return;
     }
-    
+
     if (page > 1) {
       petState = PetState.loadingMore;
       notifyListeners();

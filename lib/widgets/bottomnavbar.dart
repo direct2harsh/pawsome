@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pawsome/db/initialise_database.dart';
+import 'package:pawsome/helpers/constants.dart';
 import 'package:pawsome/main.dart';
 import 'package:pawsome/providers/bottom_nav_provider.dart';
 import 'package:pawsome/screens/history_screen.dart';
 import 'package:pawsome/screens/home_screen.dart';
 import 'package:provider/provider.dart';
-
-import 'package:flutter/cupertino.dart';
 
 class BottomNavWidget extends StatefulWidget {
   const BottomNavWidget({super.key});
@@ -27,7 +26,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
     initialiseDataBase();
   }
 
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +44,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
               currentIndex == 0 ? "Home" : "History",
             ),
             titleTextStyle: const TextStyle(
-                // color: Colors.purple,
-                fontSize: 23,
-                fontWeight: FontWeight.bold),
+                color: kColor, fontSize: 23, fontWeight: FontWeight.bold),
             actions: [
               IconButton(
                   tooltip: "Switch Theme",
@@ -56,7 +53,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   },
                   icon: const Icon(
                     Icons.color_lens,
-                    color: Colors.purple,
+                    color: kColor,
                     size: 30,
                   ))
             ],
@@ -72,7 +69,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
             useLegacyColorScheme: false,
             elevation: 2,
             enableFeedback: true,
-            selectedItemColor: Colors.purple,
+            selectedItemColor: kColor,
             items: const [
               BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
               BottomNavigationBarItem(

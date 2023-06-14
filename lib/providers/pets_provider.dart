@@ -46,6 +46,7 @@ class PetProvider extends ChangeNotifier {
 
   void adoptPet(int index) {
     _pets[index].alreadyAdopted = true;
+    _pets[index].adoptionTime = DateTime.now().toUtc().toString();
 // Updating it to database
     PetsDataBase.instance.update(_pets[index]);
     notifyListeners();

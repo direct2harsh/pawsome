@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:pawsome/helpers/constants.dart';
+import 'package:pawsome/main.dart';
 import 'package:pawsome/providers/pets_provider.dart';
 import 'package:pawsome/screens/image_view.dart';
 import 'package:pawsome/widgets/adopted_alertbox.dart';
@@ -34,6 +35,7 @@ class PetDetailScreen extends StatefulWidget {
 class _PetDetailScreenState extends State<PetDetailScreen> {
   @override
   Widget build(BuildContext context) {
+    bool isDark = MyApp.of(context).themeMode == ThemeMode.dark;
     return SafeArea(
       child: Consumer<PetProvider>(builder: (context, data, child) {
         return Scaffold(
@@ -139,7 +141,9 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                               height: 65,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: Colors.grey[300]),
+                                  color: isDark
+                                      ? Colors.black54
+                                      : Colors.grey[300]),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -157,7 +161,9 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                               height: 65,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: Colors.grey[300]),
+                                  color: isDark
+                                      ? Colors.black54
+                                      : Colors.grey[300]),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -175,7 +181,9 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                               height: 65,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  color: Colors.grey[300]),
+                                  color: isDark
+                                      ? Colors.black54
+                                      : Colors.grey[300]),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,

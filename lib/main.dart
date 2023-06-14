@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pawsome/providers/bottom_nav_provider.dart';
+import 'package:pawsome/providers/history_provider.dart';
 import 'package:pawsome/providers/pets_provider.dart';
 import 'package:pawsome/screens/home_screen.dart';
 import 'package:pawsome/widgets/bottomnavbar.dart';
@@ -9,6 +10,7 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => BottomNavigationBarProvider()),
     ChangeNotifierProvider(create: (_) => PetProvider()),
+    ChangeNotifierProvider(create: (_) => HistoryProvider()),
   ], child: const MyApp()));
 }
 
@@ -23,13 +25,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-   ThemeMode themeMode = ThemeMode.system;
+  ThemeMode themeMode = ThemeMode.light;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pawsome',
-      theme: ThemeData(brightness: Brightness.light, ),
+      theme: ThemeData(
+        brightness: Brightness.light,
+      ),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: themeMode,
       routes: {

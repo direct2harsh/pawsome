@@ -26,6 +26,7 @@ class PetsDataBase {
     const textType = 'TEXT NOT NULL';
     const boolType = 'BOOLEN NOT NULL';
     const intType = 'INTEGET NOT NULL';
+    const dateType = 'TEXT';
 
     await db.execute('''
 CREATE TABLE $petTable(
@@ -34,7 +35,8 @@ ${PetsField.name} $textType,
 ${PetsField.age} $intType,
 ${PetsField.price} $intType,
 ${PetsField.image} $textType,
-${PetsField.alreadyAdopted} $boolType
+${PetsField.alreadyAdopted} $boolType,
+${PetsField.adoptionTime} $dateType
 )''');
   }
 

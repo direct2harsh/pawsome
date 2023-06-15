@@ -52,8 +52,11 @@ class PetTile extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(25)),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                image,
+                              child: Opacity(
+                                opacity: alreadyAdopted ? .4 : 1,
+                                child: Image.asset(
+                                  image,
+                                ),
                               ),
                             ),
                           ),
@@ -90,7 +93,14 @@ class PetTile extends StatelessWidget {
                         style: const TextStyle(fontSize: 18),
                       ),
                       const Spacer(),
-                      Text(alreadyAdopted ? "Already Adopted" : ""),
+                      Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(10)),
+                          height: 25,
+                          child: Text(
+                              alreadyAdopted ? "  Already Adopted  " : "")),
                       const SizedBox(
                         width: kPadding + 10,
                       )

@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderSide: const BorderSide(color: kGreenColor)),
                     hintText: "Search",
                     alignLabelWithHint: true,
-                    prefixIcon: Icon(Icons.search)),
+                    prefixIcon: const Icon(Icons.search)),
                 onChanged: (value) {
                   provider.searchPets(value.toLowerCase());
                 },
@@ -81,54 +81,34 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? const EmptyPetsWidget()
                         : ListView.builder(
                             controller: _scrollController,
-                            // physics: AlwaysScrollableScrollPhysics(),
                             shrinkWrap: true,
-
-                            // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            //     crossAxisCount: ),
                             itemCount: provider.pets.length,
                             addAutomaticKeepAlives: true,
                             itemBuilder: (context, index) {
-                              // // To disable the focus form the Search TextField
-                              // FocusScope.of(context).unfocus();
                               return Tooltip(
                                 message: "Get details",
                                 child: Hero(
                                   tag: provider.pets[index].name!,
-                                  child: Opacity(
-                                    opacity:
-                                        provider.pets[index].alreadyAdopted!
-                                            ? .4
-                                            : 1,
-                                    child: PetTile(
-                                      onTap: () => Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  PetDetailScreen(
-                                                    // Insted of passing all the values other way would be to fetch the details from db based on id.
-                                                    // Since all the details are already available using this method
-                                                    // image: provider.pets[index].image!,
-                                                    // id: provider.pets[index].id!,
-                                                    // age: provider.pets[index].age!,
-                                                    // alreadyAdopted: provider
-                                                    //     .pets[index].alreadyAdopted!,
-                                                    name: provider
-                                                        .pets[index].name!,
-                                                    // price: provider.pets[index].price!,
-                                                    index: index,
-                                                  ))),
-                                      image: provider.pets[index].image!,
-                                      id: provider.pets[index].id!,
-                                      // age: provider.pets[index].age!,
-                                      alreadyAdopted:
-                                          provider.pets[index].alreadyAdopted!,
-                                      name: provider.pets[index].name!,
-                                      likeUnlike: () =>
-                                          provider.likeUnlikePet(index),
-                                      liked: provider.pets[index].liked!,
-                                      // price: provider.pets[index].price!,
-                                    ),
+                                  child: PetTile(
+                                    onTap: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                PetDetailScreen(
+                                                  name: provider
+                                                      .pets[index].name!,
+                                                  index: index,
+                                                ))),
+                                    image: provider.pets[index].image!,
+                                    id: provider.pets[index].id!,
+                                    // age: provider.pets[index].age!,
+                                    alreadyAdopted:
+                                        provider.pets[index].alreadyAdopted!,
+                                    name: provider.pets[index].name!,
+                                    likeUnlike: () =>
+                                        provider.likeUnlikePet(index),
+                                    liked: provider.pets[index].liked!,
+                                    // price: provider.pets[index].price!,
                                   ),
                                 ),
                               );

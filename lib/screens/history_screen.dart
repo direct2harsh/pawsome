@@ -33,7 +33,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             data.state == HistoryState.uninitialized) {
           return const Center(
             child: CircularProgressIndicator(
-              color: kColor,
+              color: kGreenColor,
             ),
           );
         }

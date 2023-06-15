@@ -11,12 +11,16 @@ class PetTile extends StatelessWidget {
   // final int price;
   final bool alreadyAdopted;
   final VoidCallback onTap;
+  final VoidCallback likeUnlike;
+  final bool liked;
 
   const PetTile(
       {super.key,
       required this.image,
       required this.name,
       required this.id,
+      required this.liked,
+      required this.likeUnlike,
       // required this.age,
       // required this.price,
       required this.onTap,
@@ -59,11 +63,15 @@ class PetTile extends StatelessWidget {
                               radius: 20,
                               backgroundColor: Colors.white54,
                               child: IconButton(
-                                  tooltip: "Bookmark",
-                                  icon: const Icon(
-                                    Icons.bookmark,
+                                  tooltip: "Like",
+                                  icon: Icon(
+                                    liked
+                                        ? Icons.favorite
+                                        : Icons.favorite_outline,
+                                    color: Colors.red,
+                                    size: 25,
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: likeUnlike),
                             ),
                           ),
                         ],
@@ -74,16 +82,16 @@ class PetTile extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: kPadding,
                       ),
                       Text(
                         name,
-                        style: TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 18),
                       ),
                       const Spacer(),
                       Text(alreadyAdopted ? "Already Adopted" : ""),
-                      SizedBox(
+                      const SizedBox(
                         width: kPadding + 10,
                       )
                     ],

@@ -1,11 +1,12 @@
 [
 {
     "id":1,
-    "name":"Angle",
+    "name":"Angel",
     "age":1,
     "image":"assets/images/Angel.jpg",
     "price": 5000,
-    "alreadyAdopted": false
+    "alreadyAdopted": false,
+    "liked": false
 },
 {
     "id":2,
@@ -13,6 +14,7 @@
     "age":3,
     "price": 8000,
     "image":"assets/images/Breezer.jpg",
+    "liked": false,
     "alreadyAdopted": false
 },
 {
@@ -21,6 +23,7 @@
     "age":1,
     "image":"assets/images/Brownie.jpg",
     "price": 3000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":4,
@@ -28,6 +31,7 @@
     "age":2,
     "image":"assets/images/Candy.jpg",
     "price": 2000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":5,
@@ -35,6 +39,7 @@
     "age":2,
     "image":"assets/images/Crystal.jpg",
     "price": 12000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":6,
@@ -42,6 +47,7 @@
     "age":1,
     "image":"assets/images/Cuddle.jpg",
     "price": 9000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":7,
@@ -49,6 +55,7 @@
     "age":2,
     "image":"assets/images/Dusky.jpg",
     "price": 20000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":9,
@@ -56,6 +63,7 @@
     "age":1,
     "image":"assets/images/Jenny.jpg",
     "price": 4000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":10,
@@ -63,6 +71,7 @@
     "age":4,
     "image":"assets/images/Jojo.jpg",
     "price": 5000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":11,
@@ -70,6 +79,7 @@
     "age":6,
     "image":"assets/images/Leo.jpg",
     "price": 7000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":12,
@@ -77,6 +87,7 @@
     "age":3,
     "image":"assets/images/Max.jpg",
     "price": 3000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":13,
@@ -84,6 +95,7 @@
     "age":4,
     "image":"assets/images/Monty.jpg",
     "price": 2000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":14,
@@ -91,6 +103,7 @@
     "age":2,
     "image":"assets/images/Olivia.jpg",
     "price": 22000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":15,
@@ -98,6 +111,7 @@
     "age":1,
     "image":"assets/images/Oreo.jpg",
     "price": 6500,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":16,
@@ -105,6 +119,7 @@
     "age":6,
     "image":"assets/images/Prince.jpg",
     "price": 3500,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":17,
@@ -112,6 +127,7 @@
     "age":5,
     "image":"assets/images/Rambo.jpg",
     "price": 5000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":18,
@@ -119,6 +135,7 @@
     "age":2,
     "image":"assets/images/Rose.jpg",
     "price": 19000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":19,
@@ -126,6 +143,7 @@
     "age":3,
     "image":"assets/images/Ruby.jpg",
     "price": 6000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":20,
@@ -133,6 +151,7 @@
     "age":5,
     "image":"assets/images/Simba.jpg",
     "price": 4000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":21,
@@ -140,6 +159,7 @@
     "age":1,
     "image":"assets/images/Snowbell.jpg",
     "price": 5000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":22,
@@ -147,6 +167,7 @@
     "age":3,
     "image":"assets/images/Tommy.jpg",
     "price": 8000,
+    "liked": false,
     "alreadyAdopted": false
 },{
     "id":23,
@@ -154,6 +175,7 @@
     "age":1,
     "image":"assets/images/Tuffy.jpg",
     "price": 10000,
+    "liked": false,
     "alreadyAdopted": false
 }
 ]

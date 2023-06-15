@@ -8,6 +8,7 @@ class PetsField {
   static const String image = "image";
   static const String alreadyAdopted = "alreadyAdopted";
   static const String adoptionTime = "adoptionTime";
+  static const String liked = "liked";
 }
 
 class Pet {
@@ -18,6 +19,7 @@ class Pet {
   String? image;
   bool? alreadyAdopted;
   String? adoptionTime;
+  bool? liked;
 
   Pet(
       {this.name,
@@ -26,6 +28,7 @@ class Pet {
       this.image,
       this.alreadyAdopted,
       this.adoptionTime,
+      this.liked,
       this.id});
 
   factory Pet.fromJson(Map<String, dynamic> json) => Pet(
@@ -35,6 +38,7 @@ class Pet {
       price: json['price'],
       alreadyAdopted: json['alreadyAdopted'] == 1 ? true : false,
       adoptionTime: json['adoptionTime'],
+      liked: json['liked'] == 1 ? true : false,
       image: json['image']);
 
   Map<String, dynamic> toJson() => {
@@ -44,6 +48,7 @@ class Pet {
         PetsField.price: price,
         PetsField.image: image,
         PetsField.alreadyAdopted: alreadyAdopted! ? 1 : 0,
+        PetsField.liked: liked! ? 1 : 0,
         PetsField.adoptionTime: adoptionTime
       };
 }

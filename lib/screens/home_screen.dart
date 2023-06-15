@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         if (provider.petState == PetState.uninitialized) {
           return const Center(
             child: CircularProgressIndicator(
-              color: kColor,
+              color: kGreenColor,
             ),
           );
         }
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(15)),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
-                        borderSide: const BorderSide(color: kColor)),
+                        borderSide: const BorderSide(color: kGreenColor)),
                     hintText: "Search",
                     alignLabelWithHint: true,
                     prefixIcon: Icon(Icons.search)),
@@ -124,6 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       alreadyAdopted:
                                           provider.pets[index].alreadyAdopted!,
                                       name: provider.pets[index].name!,
+                                      likeUnlike: () =>
+                                          provider.likeUnlikePet(index),
+                                      liked: provider.pets[index].liked!,
                                       // price: provider.pets[index].price!,
                                     ),
                                   ),
@@ -137,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Padding(
                               padding: EdgeInsets.only(bottom: kPadding),
                               child: CircularProgressIndicator(
-                                color: kColor,
+                                color: kGreenColor,
                               ),
                             ))),
                   ],

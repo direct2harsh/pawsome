@@ -40,7 +40,7 @@ class HomeProvider extends ChangeNotifier {
     }
 
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
       () async {
         List<Pet> temp = await getPets(page: _page);
         mainPetsList.addAll(temp);
@@ -56,7 +56,16 @@ class HomeProvider extends ChangeNotifier {
 // Adopt Pet logic
   void adoptPet(int index) {
     _pets[index].alreadyAdopted = true;
-    _pets[index].adoptionTime = DateTime.now().toUtc().toString();
+    _pets[index].adoptionTime = DateTime.now().toLocal().toString();
+// Updating it to database
+    PetsDataBase.instance.update(_pets[index]);
+    notifyListeners();
+  }
+
+  // Adopt Pet logic
+  void likeUnlikePet(int index) {
+    _pets[index].liked = !_pets[index].liked!;
+    _pets[index].adoptionTime = DateTime.now().toLocal().toString();
 // Updating it to database
     PetsDataBase.instance.update(_pets[index]);
     notifyListeners();

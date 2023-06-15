@@ -23,7 +23,11 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
   @override
   void initState() {
     super.initState();
-    initialiseDataBase();
+    triggerInitialization();
+  }
+
+  Future triggerInitialization() async {
+    await initialiseDataBase();
   }
 
   final PageController _pageController = PageController();
@@ -38,7 +42,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
           appBar: AppBar(
             leading: const Icon(
               Icons.pets,
-              color: kColor,
+              color: kGreenColor,
             ),
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -48,7 +52,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
               currentIndex == 0 ? "Home" : "History",
             ),
             titleTextStyle: const TextStyle(
-                color: kColor, fontSize: 23, fontWeight: FontWeight.bold),
+                color: kGreenColor, fontSize: 23, fontWeight: FontWeight.bold),
             actions: [
               IconButton(
                   tooltip: "Switch Theme",
@@ -57,7 +61,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
                   },
                   icon: const Icon(
                     Icons.color_lens_sharp,
-                    color: kColor,
+                    color: kGreenColor,
                     size: 30,
                   ))
             ],
@@ -73,7 +77,7 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
             useLegacyColorScheme: false,
             elevation: 2,
             enableFeedback: true,
-            selectedItemColor: kColor,
+            selectedItemColor: kGreenColor,
             items: const [
               BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
               BottomNavigationBarItem(

@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
 const double kPadding = 20;
-const kColor = Colors.green;
+const kGreenColor = Colors.green;

@@ -1,5 +1,6 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:pawsome/helpers/constants.dart';
 
 class AdoptedAlertBox extends StatelessWidget {
   final String name;
@@ -19,7 +20,7 @@ class AdoptedAlertBox extends StatelessWidget {
       icon: const Icon(
         Icons.pets_rounded,
         size: 40,
-        color: Colors.orange,
+        color: kGreenColor,
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -52,6 +53,7 @@ class AdoptedAlertBox extends StatelessWidget {
           ),
         ],
       ),
+      actionsAlignment: MainAxisAlignment.center,
       actions: [
         TextButton(
             onPressed: () => Navigator.pop(context), child: const Text("Ok"))

@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // This funtion is adding the The json data form asset/json_data to sqllite database for persistence only once
 
-void initialiseDataBase() async {
+Future initialiseDataBase() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final bool alreadyInitialised = prefs.getBool('alreadyInitialised') ?? false;
 
@@ -23,6 +23,7 @@ void initialiseDataBase() async {
             age: json['age'],
             image: json['image'],
             price: json['price'],
+            liked: json['liked'],
             alreadyAdopted: json['alreadyAdopted']))
         .toList();
 

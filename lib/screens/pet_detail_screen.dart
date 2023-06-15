@@ -48,7 +48,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                   message: "Adopt me",
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: kColor,
+                        backgroundColor: kGreenColor,
                         elevation: 25,
                         // shape: StadiumBorder(),
                         shape: RoundedRectangleBorder(
@@ -211,7 +211,7 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
                         Row(
                           children: [
                             const CircleAvatar(
-                              backgroundColor: kColor,
+                              backgroundColor: kGreenColor,
                               radius: 25,
                               child: Icon(
                                 Icons.person,

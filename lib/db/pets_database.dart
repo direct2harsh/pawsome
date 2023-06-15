@@ -36,6 +36,7 @@ ${PetsField.age} $intType,
 ${PetsField.price} $intType,
 ${PetsField.image} $textType,
 ${PetsField.alreadyAdopted} $boolType,
+${PetsField.liked} $boolType,
 ${PetsField.adoptionTime} $dateType
 )''');
   }

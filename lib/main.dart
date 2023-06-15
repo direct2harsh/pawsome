@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pawsome/providers/bottom_nav_provider.dart';
 import 'package:pawsome/providers/history_provider.dart';
 import 'package:pawsome/providers/pets_provider.dart';
-import 'package:pawsome/screens/home_screen.dart';
+
 import 'package:pawsome/widgets/bottomnavbar.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +20,7 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 
+  // ignore: library_private_types_in_public_api
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pawsome/db/initialise_database.dart';
 
-import 'package:pawsome/db/pets_database.dart';
 import 'package:pawsome/helpers/constants.dart';
 import 'package:pawsome/providers/pets_provider.dart';
 import 'package:pawsome/screens/pet_detail_screen.dart';

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../helpers/constants.dart';
 
-class EmptyPetsWidget extends StatelessWidget {
-  const EmptyPetsWidget({super.key});
+class EmptyHistoryWidget extends StatelessWidget {
+  const EmptyHistoryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class EmptyPetsWidget extends StatelessWidget {
             height: kPadding / 2,
           ),
           Text(
-            "No matches",
+            "No History",
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w600, color: kGreenColor),
           ),

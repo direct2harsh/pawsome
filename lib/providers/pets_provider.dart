@@ -34,14 +34,14 @@ class HomeProvider extends ChangeNotifier {
       return;
     }
 
-    if (page > 1) {
-      petState = PetState.loadingMore;
-      notifyListeners();
-    }
-
     Future.delayed(
       const Duration(seconds: 4),
       () async {
+        if (page > 1) {
+          petState = PetState.loadingMore;
+          notifyListeners();
+        }
+
         List<Pet> temp = await getPets(page: _page);
         mainPetsList.addAll(temp);
 

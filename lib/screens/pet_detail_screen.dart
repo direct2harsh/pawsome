@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:pawsome/helpers/constants.dart';
 import 'package:pawsome/main.dart';
 import 'package:pawsome/providers/pets_provider.dart';
